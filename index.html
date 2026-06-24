@@ -1,707 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SNK Luxury Real Estate | Speros Koulourides | Asteras Paradise Club Paros</title>
-<meta name="description" content="SNK Luxury Real Estate by Speros Koulourides. Exclusive properties at Asteras Paradise Club, Paros, Greece. Discover luxury villas and investment opportunities.">
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-    :root {
-        --gold: #D4AF37;
-        --gold-light: #E8C766;
-        --gold-dark: #B8941F;
-        --dark: #0A0A0A;
-        --dark-800: #141414;
-        --dark-700: #1E1E1E;
-        --dark-600: #2A2A2A;
-    }
-    
-    html {
-        scroll-behavior: smooth;
-    }
-    
-    body {
-        font-family: 'Montserrat', sans-serif;
-        background-color: var(--dark);
-        color: #F5F5F5;
-        overflow-x: hidden;
-    }
-    
-    h1, h2, h3, h4, h5 {
-        font-family: 'Cormorant Garamond', serif;
-    }
-    
-    .gold-gradient {
-        background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-    
-    .gold-bg {
-        background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
-    }
-    
-    .glass {
-        background: rgba(20, 20, 20, 0.6);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(212, 175, 55, 0.2);
-    }
-    
-    .gold-border {
-        position: relative;
-    }
-    
-    .gold-border::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        padding: 1px;
-        background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        pointer-events: none;
-    }
-    
-    .hero-bg {
-        background: linear-gradient(to bottom, rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.95)), 
-                    url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075') center/cover no-repeat;
-    }
-    
-    .property-card {
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    
-    .property-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
-    }
-    
-    .nav-link {
-        position: relative;
-    }
-    
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--gold);
-        transition: width 0.3s ease;
-    }
-    
-    .nav-link:hover::after {
-        width: 100%;
-    }
-    
-    .btn-gold {
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-    }
-    
-    .btn-gold::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-        transition: left 0.5s ease;
-        z-index: -1;
-    }
-    
-    .btn-gold:hover::before {
-        left: 100%;
-    }
-    
-    .modal-enter {
-        animation: modalEnter 0.3s ease-out forwards;
-    }
-    
-    @keyframes modalEnter {
-        from {
-            opacity: 0;
-            transform: scale(0.9) translateY(20px);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNK Luxury Real Estate | Speros Koulourides | Asteras Paradise Club Paros</title>
+    <meta name="description" content="SNK Luxury Real Estate by Speros Koulourides. Exclusive properties at Asteras Paradise Club, Paros. Luxury villas with sea views.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #E8C766;
+            --gold-dark: #B8941F;
+            --dark: #0A0A0A;
+            --dark-800: #141414;
+            --dark-700: #1E1E1E;
+            --dark-600: #2A2A2A;
         }
-        to {
-            opacity: 1;
-            transform: scale(1) translateY(0);
+
+        html {
+            scroll-behavior: smooth;
         }
-    }
-    
-    .fade-in {
-        animation: fadeIn 1s ease-out forwards;
-        opacity: 0;
-    }
-    
-    @keyframes fadeIn {
-        to {
-            opacity: 1;
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: #F5F5F5;
+            overflow-x: hidden;
         }
-    }
-    
-    .slide-up {
-        animation: slideUp 0.8s ease-out forwards;
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    
-    @keyframes slideUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
         }
-    }
-    
-    input:focus, textarea:focus {
-        outline: none;
-        border-color: var(--gold);
-        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
-    }
-    
-    .mobile-menu {
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-    }
-    
-    .mobile-menu.active {
-        transform: translateX(0);
-    }
-</style>
+
+        .gold-gradient {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gold-border {
+            border: 1px solid var(--gold);
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)), url('https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1920&q=80') center/cover;
+        }
+
+        .property-card {
+            transition: all 0.4s ease;
+            background: var(--dark-800);
+        }
+
+        .property-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+            color: var(--dark);
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--dark-800);
+            border: 1px solid var(--gold);
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.4s;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        input, textarea {
+            background: var(--dark-700);
+            border: 1px solid var(--dark-600);
+            color: #F5F5F5;
+            transition: all 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
+        }
+
+        .success-msg {
+            display: none;
+        }
+
+        .success-msg.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+    </style>
 </head>
-<body class="antialiased">
+<body>
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center">
-                    <h1 class="text-2xl md:text-3xl font-bold gold-gradient tracking-wider">SNK</h1>
-                    <span class="ml-3 text-sm text-gray-400 hidden md:block">Luxury Real Estate</span>
+    <nav class="fixed w-full z-50 bg-dark bg-opacity-95 backdrop-blur-md border-b border-opacity-20" style="border-color: var(--gold);">
+        <div class="container mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-2xl font-bold tracking-wider">
+                        <span class="gold-gradient">SNK</span>
+                    </h1>
+                    <p class="text-xs tracking-widest text-gray-400 uppercase">Luxury Real Estate</p>
                 </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-gray-300 hover:text-white transition">Home</a>
-                    <a href="#properties" class="nav-link text-gray-300 hover:text-white transition">Properties</a>
-                    <a href="#asteras" class="nav-link text-gray-300 hover:text-white transition">Asteras Paradise</a>
-                    <a href="#about" class="nav-link text-gray-300 hover:text-white transition">About</a>
-                    <a href="#contact" class="nav-link text-gray-300 hover:text-white transition">Contact</a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="nav-link text-sm uppercase tracking-wider">Home</a>
+                    <a href="#properties" class="nav-link text-sm uppercase tracking-wider">Properties</a>
+                    <a href="#about" class="nav-link text-sm uppercase tracking-wider">About</a>
+                    <a href="#process" class="nav-link text-sm uppercase tracking-wider">Process</a>
+                    <a href="#contact" class="nav-link text-sm uppercase tracking-wider">Contact</a>
                 </div>
-                
-                <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-white">
+                <button class="md:hidden text-gold" onclick="toggleMobileMenu()">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
-        
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-64 h-full bg-[var(--dark-800)] border-l border-[var(--gold-dark)] md:hidden">
-            <div class="flex justify-between items-center p-6 border-b border-gray-800">
-                <h2 class="text-xl font-bold gold-gradient">Menu</h2>
-                <button id="closeMobileMenu" class="text-gray-300 hover:text-white">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
-            </div>
-            <div class="flex flex-col space-y-6 p-6">
-                <a href="#home" class="text-gray-300 hover:text-[var(--gold)] transition mobile-nav-link">Home</a>
-                <a href="#properties" class="text-gray-300 hover:text-[var(--gold)] transition mobile-nav-link">Properties</a>
-                <a href="#asteras" class="text-gray-300 hover:text-[var(--gold)] transition mobile-nav-link">Asteras Paradise</a>
-                <a href="#about" class="text-gray-300 hover:text-[var(--gold)] transition mobile-nav-link">About</a>
-                <a href="#contact" class="text-gray-300 hover:text-[var(--gold)] transition mobile-nav-link">Contact</a>
+        <div id="mobileMenu" class="hidden md:hidden bg-dark-800 border-t" style="border-color: var(--gold);">
+            <div class="container mx-auto px-6 py-4 space-y-4">
+                <a href="#home" class="block text-sm uppercase tracking-wider" onclick="toggleMobileMenu()">Home</a>
+                <a href="#properties" class="block text-sm uppercase tracking-wider" onclick="toggleMobileMenu()">Properties</a>
+                <a href="#about" class="block text-sm uppercase tracking-wider" onclick="toggleMobileMenu()">About</a>
+                <a href="#process" class="block text-sm uppercase tracking-wider" onclick="toggleMobileMenu()">Process</a>
+                <a href="#contact" class="block text-sm uppercase tracking-wider" onclick="toggleMobileMenu()">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative pt-20">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--dark)]/50 to-[var(--dark)]"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 text-center">
-            <div class="fade-in" style="animation-delay: 0.2s">
-                <p class="text-[var(--gold)] uppercase tracking-[0.3em] text-sm mb-4">Speros Koulourides</p>
-                <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                    SNK Luxury <span class="gold-gradient">Real Estate</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto font-light">
-                    Exclusive Properties at Asteras Paradise Club, Paros Greece
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="#properties" class="btn-gold gold-bg text-[var(--dark)] px-8 py-4 rounded font-semibold tracking-wide uppercase text-sm hover:shadow-[0_0_30px_rgba(212,175,55,0.5)]">
-                        View Properties
-                    </a>
-                    <a href="#contact" class="gold-border px-8 py-4 rounded font-semibold tracking-wide uppercase text-sm text-white hover:bg-[var(--dark-700)] transition">
-                        Schedule Viewing
-                    </a>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 slide-up" style="animation-delay: 0.6s">
-                <div class="glass p-6 rounded-lg">
-                    <p class="text-3xl md:text-4xl font-bold gold-gradient mb-2">15+</p>
-                    <p class="text-gray-400 text-sm">Years Experience</p>
-                </div>
-                <div class="glass p-6 rounded-lg">
-                    <p class="text-3xl md:text-4xl font-bold gold-gradient mb-2">€250M+</p>
-                    <p class="text-gray-400 text-sm">Properties Sold</p>
-                </div>
-                <div class="glass p-6 rounded-lg">
-                    <p class="text-3xl md:text-4xl font-bold gold-gradient mb-2">100+</p>
-                    <p class="text-gray-400 text-sm">Luxury Villas</p>
-                </div>
-                <div class="glass p-6 rounded-lg">
-                    <p class="text-3xl md:text-4xl font-bold gold-gradient mb-2">200+</p>
-                    <p class="text-gray-400 text-sm">Happy Clients</p>
-                </div>
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-center px-6 pt-20">
+        <div class="max-w-4xl">
+            <p class="text-gold text-sm tracking-[0.3em] uppercase mb-6">Asteras Paradise Club, Paros</p>
+            <h2 class="text-5xl md:text-7xl font-light mb-6 leading-tight">
+                Curated Collection of<br><span class="gold-gradient font-semibold">Luxury Properties</span>
+            </h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Exclusive villas and estates overlooking the Aegean Sea. Where timeless elegance meets contemporary luxury.
+            </p>
+            <div class="flex gap-4 justify-center flex-wrap">
+                <a href="#properties" class="btn-gold px-10 py-4 uppercase tracking-wider text-sm">
+                    Explore Properties
+                </a>
+                <button onclick="openModal()" class="gold-border px-10 py-4 uppercase tracking-wider text-sm hover:bg-gold hover:text-dark transition-all">
+                    Schedule Viewing
+                </button>
             </div>
         </div>
     </section>
 
     <!-- Properties Section -->
-    <section id="properties" class="py-20 md:py-32 bg-[var(--dark-800)]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="properties" class="py-24 px-6 bg-dark-800">
+        <div class="container mx-auto max-w-7xl">
             <div class="text-center mb-16">
-                <p class="text-[var(--gold)] uppercase tracking-[0.3em] text-sm mb-4">Featured Collection</p>
-                <h2 class="text-4xl md:text-6xl font-bold mb-4">Exclusive <span class="gold-gradient">Properties</span></h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">Curated selection of the finest villas and estates in Asteras Paradise Club</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Property 1 -->
-                <div class="property-card glass rounded-xl overflow-hidden">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2071" alt="Villa Aphrodite" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                        <div class="absolute top-4 right-4 gold-bg text-[var(--dark)] px-4 py-1 rounded-full text-xs font-bold">
-                            Exclusive
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold mb-2">Villa Aphrodite</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex items-center">
-                            <i class="fas fa-map-marker-alt text-[var(--gold)] mr-2"></i>
-                            Asteras Paradise Club, Paros
-                        </p>
-                        <div class="flex justify-between items-center mb-4 text-sm text-gray-400">
-                            <span><i class="fas fa-bed text-[var(--gold)] mr-1"></i> 5 Beds</span>
-                            <span><i class="fas fa-bath text-[var(--gold)] mr-1"></i> 6 Baths</span>
-                            <span><i class="fas fa-ruler-combined text-[var(--gold)] mr-1"></i> 450m²</span>
-                        </div>
-                        <div class="flex justify-between items-center pt-4 border-t border-gray-800">
-                            <p class="text-2xl font-bold gold-gradient">€4,200,000</p>
-                            <button class="text-[var(--gold)] hover:text-[var(--gold-light)] transition">
-                                <i class="fas fa-arrow-right text-xl"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 2 -->
-                <div class="property-card glass rounded-xl overflow-hidden">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=2084" alt="Aegean Pearl" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-green-600 text-white px-4 py-1 rounded-full text-xs font-bold">
-                            New Listing
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold mb-2">Aegean Pearl</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex items-center">
-                            <i class="fas fa-map-marker-alt text-[var(--gold)] mr-2"></i>
-                            Private Beachfront, Paros
-                        </p>
-                        <div class="flex justify-between items-center mb-4 text-sm text-gray-400">
-                            <span><i class="fas fa-bed text-[var(--gold)] mr-1"></i> 6 Beds</span>
-                            <span><i class="fas fa-bath text-[var(--gold)] mr-1"></i> 7 Baths</span>
-                            <span><i class="fas fa-ruler-combined text-[var(--gold)] mr-1"></i> 620m²</span>
-                        </div>
-                        <div class="flex justify-between items-center pt-4 border-t border-gray-800">
-                            <p class="text-2xl font-bold gold-gradient">€6,800,000</p>
-                            <button class="text-[var(--gold)] hover:text-[var(--gold-light)] transition">
-                                <i class="fas fa-arrow-right text-xl"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 3 -->
-                <div class="property-card glass rounded-xl overflow-hidden">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070" alt="Sunset Estate" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold mb-2">Sunset Estate</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex items-center">
-                            <i class="fas fa-map-marker-alt text-[var(--gold)] mr-2"></i>
-                            Hillside, Asteras Paradise
-                        </p>
-                        <div class="flex justify-between items-center mb-4 text-sm text-gray-400">
-                            <span><i class="fas fa-bed text-[var(--gold)] mr-1"></i> 4 Beds</span>
-                            <span><i class="fas fa-bath text-[var(--gold)] mr-1"></i> 5 Baths</span>
-                            <span><i class="fas fa-ruler-combined text-[var(--gold)] mr-1"></i> 380m²</span>
-                        </div>
-                        <div class="flex justify-between items-center pt-4 border-t border-gray-800">
-                            <p class="text-2xl font-bold gold-gradient">€3,500,000</p>
-                            <button class="text-[var(--gold)] hover:text-[var(--gold-light)] transition">
-                                <i class="fas fa-arrow-right text-xl"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Asteras Paradise Section -->
-    <section id="asteras" class="py-20 md:py-32 relative">
-        <div class="absolute inset-0 bg-gradient-to-r from-[var(--dark)] via-[var(--dark-800)]/90 to-[var(--dark)]"></div>
-        <div class="absolute inset-0 opacity-10" style="background: url('https://images.unsplash.com/photo-1544986581-efac024faf62?q=80&w=2070') center/cover no-repeat;"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <p class="text-[var(--gold)] uppercase tracking-[0.3em] text-sm mb-4">The Destination</p>
-                    <h2 class="text-4xl md:text-6xl font-bold mb-6">Asteras Paradise <span class="gold-gradient">Club</span></h2>
-                    <p class="text-gray-300 text-lg mb-6 leading-relaxed">
-                        Located on the pristine shores of Paros Island, Asteras Paradise Club represents the pinnacle of Mediterranean luxury living. This exclusive gated community offers unparalleled privacy, world-class amenities, and breathtaking Aegean Sea views.
-                    </p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-[var(--gold)] mt-1 mr-3"></i>
-                            <p class="text-gray-400">Private beach access with 24/7 concierge service</p>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-[var(--gold)] mt-1 mr-3"></i>
-                            <p class="text-gray-400">Championship golf course designed by Gary Player</p>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-[var(--gold)] mt-1 mr-3"></i>
-                            <p class="text-gray-400">Michelin-starred dining and spa facilities</p>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-[var(--gold)] mt-1 mr-3"></i>
-                            <p class="text-gray-400">Helipad and yacht marina with customs clearance</p>
-                        </div>
-                    <button onclick="openContactModal()" class="btn-gold gold-bg text-[var(--dark)] px-8 py-4 rounded font-semibold tracking-wide uppercase text-sm">
-                        Request Brochure
-                    </button>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b303?q=80&w=1974" alt="Asteras Paradise 1" class="rounded-lg h-64 w-full object-cover">
-                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070" alt="Asteras Paradise 2" class="rounded-lg h-64 w-full object-cover mt-8">
-                    <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=2070" alt="Asteras Paradise 3" class="rounded-lg h-64 w-full object-cover">
-                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070" alt="Asteras Paradise 4" class="rounded-lg h-64 w-full object-cover mt-8">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 md:py-32 bg-[var(--dark-800)]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1">
-                    <div class="glass rounded-xl p-8 gold-border">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974" alt="Speros Koulourides" class="w-full h-96 object-cover rounded-lg mb-6">
-                        <div class="flex justify-center space-x-4">
-                            <a href="https://linkedin.com" class="text-gray-400 hover:text-[var(--gold)] transition"><i class="fab fa-linkedin text-2xl"></i></a>
-                            <a href="https://instagram.com" class="text-gray-400 hover:text-[var(--gold)] transition"><i class="fab fa-instagram text-2xl"></i></a>
-                            <a href="mailto:sperosk1@gmail.com" class="text-gray-400 hover:text-[var(--gold)] transition"><i class="fas fa-envelope text-2xl"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="order-1 lg:order-2">
-                    <p class="text-[var(--gold)] uppercase tracking-[0.3em] text-sm mb-4">Your Agent</p>
-                    <h2 class="text-4xl md:text-6xl font-bold mb-6">Speros <span class="gold-gradient">Koulourides</span></h2>
-                    <p class="text-gray-300 text-lg mb-6 leading-relaxed">
-                        With over 15 years of experience in luxury real estate, Speros Koulourides has established himself as Paros Island's premier property specialist. Founder of SNK Luxury Real Estate, Speros brings unmatched expertise in the ultra-high-net-worth market.
-                    </p>
-                    <p class="text-gray-400 mb-8 leading-relaxed">
-                        Specializing exclusively in Asteras Paradise Club and select premium locations across Paros, Speros has facilitated over €250 million in transactions. His discretion, market knowledge, and extensive network ensure clients receive unparalleled service and access to off-market opportunities.
-                    </p>
-                    <div class="grid grid-cols-2 gap-6 mb-8">
-                        <div>
-                            <p class="text-3xl font-bold gold-gradient mb-2">98%</p>
-                            <p class="text-gray-400 text-sm">Client Satisfaction</p>
-                        </div>
-                        <div>
-                            <p class="text-3xl font-bold gold-gradient mb-2">24/7</p>
-                            <p class="text-gray-400 text-sm">Personal Service</p>
-                        </div>
-                    <button onclick="openContactModal()" class="btn-gold gold-bg text-[var(--dark)] px-8 py-4 rounded font-semibold tracking-wide uppercase text-sm">
-                        Schedule Consultation
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Next Steps & Contact Section -->
-    <section id="contact" class="py-20 md:py-32 relative">
-        <div class="absolute inset-0 bg-gradient-to-b from-[var(--dark-800)] to-[var(--dark)]"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <p class="text-[var(--gold)] uppercase tracking-[0.3em] text-sm mb-4">Get Started</p>
-                <h2 class="text-4xl md:text-6xl font-bold mb-6">Next Steps & <span class="gold-gradient">Contact</span></h2>
-                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Begin your journey to owning a piece of paradise. Let's discuss your vision.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <div class="glass rounded-xl p-8 text-center">
-                    <div class="w-16 h-16 gold-bg rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-calendar-check text-[var(--dark)] text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">1. Consultation</h3>
-                    <p class="text-gray-400 text-sm">Schedule a private consultation to discuss your requirements and investment goals.</p>
-                </div>
-                <div class="glass rounded-xl p-8 text-center">
-                    <div class="w-16 h-16 gold-bg rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-home text-[var(--dark)] text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">2. Property Tour</h3>
-                    <p class="text-gray-400 text-sm">Private viewing of curated properties matching your criteria, including off-market listings.</p>
-                </div>
-                <div class="glass rounded-xl p-8 text-center">
-                    <div class="w-16 h-16 gold-bg rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-key text-[var(--dark)] text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">3. Acquisition</h3>
-                    <p class="text-gray-400 text-sm">Full-service support through negotiation, legal process, and key handover.</p>
-                </div>
-            </div>
-            
-            <div class="glass rounded-2xl p-8 md:p-12 gold-border">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="text-3xl font-bold mb-6">Ready to Find Your <span class="gold-gradient">Dream Property?</span></h3>
-                        <p class="text-gray-300 mb-8 leading-relaxed">
-                            Contact Speros directly for immediate assistance with your luxury real estate needs in Paros. Available for private consultations and property viewings by appointment.
-                        </p>
-                        <div class="space-y-4 mb-8">
-                            <div class="flex items-center">
-                                <i class="fas fa-phone text-[var(--gold)] w-6"></i>
-                                <a href="tel:+306985821148" class="text-gray-300 ml-4 hover:text-[var(--gold)] transition">+30 6985 821 148</a>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-envelope text-[var(--gold)] w-6"></i>
-                                <a href="mailto:sperosk1@gmail.com" class="text-gray-300 ml-4 hover:text-[var(--gold)] transition">sperosk1@gmail.com</a>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-map-marker-alt text-[var(--gold)] w-6"></i>
-                                <span class="text-gray-300 ml-4">Asteras Paradise Club, Paros, Greece</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button onclick="openContactModal()" class="btn-gold gold-bg text-[var(--dark)] px-12 py-5 rounded-lg font-bold tracking-wider uppercase text-base hover:shadow-[0_0_40px_rgba(212,175,55,0.6)] w-full md:w-auto">
-                            <i class="fas fa-paper-plane mr-2"></i> Contact
-                        </button>
-                        <p class="text-gray-500 text-sm mt-4">Response within 24 hours</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-[var(--dark-800)] border-t border-gray-800 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div class="md:col-span-2">
-                    <h3 class="text-2xl font-bold gold-gradient mb-4">SNK Luxury Real Estate</h3>
-                    <p class="text-gray-400 text-sm mb-4 max-w-md">
-                        Exclusive luxury properties in Asteras Paradise Club, Paros. Discretion, excellence, and unparalleled service for distinguished clients.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-[var(--gold)] transition"><i class="fab fa-linkedin text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-[var(--gold)] transition"><i class="fab fa-instagram text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-[var(--gold)] transition"><i class="fab fa-facebook text-xl"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#home" class="text-gray-400 hover:text-[var(--gold)] transition">Home</a></li>
-                        <li><a href="#properties" class="text-gray-400 hover:text-[var(--gold)] transition">Properties</a></li>
-                        <li><a href="#asteras" class="text-gray-400 hover:text-[var(--gold)] transition">Asteras Paradise</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-[var(--gold)] transition">About Speros</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li>Paros, Greece</li>
-                        <li>+30 6985 821 148</li>
-                        <li>sperosk1@gmail.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 pt-8 text-center">
-                <p class="text-gray-500 text-sm">© 2024 SNK Luxury Real Estate | Speros Koulourides. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Contact Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
-        <div class="glass rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto gold-border modal-enter">
-            <div class="p-6 md:p-10">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-3xl font-bold">Get in <span class="gold-gradient">Touch</span></h3>
-                    <button onclick="closeContactModal()" class="text-gray-400 hover:text-white transition">
-                        <i class="fas fa-times text-2xl"></i>
-                    </button>
-                </div>
-                
-                <form id="contactForm" action="https://formsubmit.co/sperosk1@gmail.com" method="POST" class="space-y-6">
-                    <!-- FormSubmit Configuration -->
-                    <input type="hidden" name="_subject" value="New Inquiry - SNK Luxury Real Estate">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="">
-                    
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Full Name *</label>
-                        <input type="text" id="name" name="name" required
-                               class="w-full px-4 py-3 bg-[var(--dark-700)] border border-gray-700 rounded-lg text-white transition"
-                               placeholder="Your Name">
-                    </div>
-                    
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email Address *</label>
-                        <input type="email" id="email" name="email" required
-                               class="w-full px-4 py-3 bg-[var(--dark-700)] border border-gray-700 rounded-lg text-white transition"
-                               placeholder="your@email.com">
-                    </div>
-                    
-                    <div>
-                        <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
-                        <input type="tel" id="phone" name="phone"
-                               class="w-full px-4 py-3 bg-[var(--dark-700)] border border-gray-700 rounded-lg text-white transition"
-                               placeholder="+30 XXX XXX XXXX">
-                    </div>
-                    
-                    <div>
-                        <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message *</label>
-                        <textarea id="message" name="message" rows="5" required
-                                  class="w-full px-4 py-3 bg-[var(--dark-700)] border border-gray-700 rounded-lg text-white transition resize-none"
-                                  placeholder="Tell us about your property requirements..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn-gold gold-bg text-[var(--dark)] px-8 py-4 rounded-lg font-bold tracking-wider uppercase text-sm w-full hover:shadow-[0_0_30px_rgba(212,175,55,0.5)]">
-                        <i class="fas fa-paper-plane mr-2"></i> Send Message
-                    </button>
-                    
-                    <p class="text-gray-500 text-xs text-center">
-                        By submitting this form, you agree to be contacted by Speros Koulourides regarding your inquiry.
-                    </p>
-                </form>
-                
-                <div class="mt-8 pt-8 border-t border-gray-800 text-center">
-                    <p class="text-gray-400 text-sm mb-4">Or contact directly:</p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="tel:+306985821148" class="text-[var(--gold)] hover:text-[var(--gold-light)] transition">
-                            <i class="fas fa-phone mr-2"></i>+30 6985 821 148
-                        </a>
-                        <a href="mailto:sperosk1@gmail.com" class="text-[var(--gold)] hover:text-[var(--gold-light)] transition">
-                            <i class="fas fa-envelope mr-2"></i>sperosk1@gmail.com
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const closeMobileMenu = document.getElementById('closeMobileMenu');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-        });
-
-        closeMobileMenu.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
-
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        // Contact Modal
-        const contactModal = document.getElementById('contactModal');
-        
-        function openContactModal() {
-            contactModal.classList.remove('hidden');
-            contactModal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeContactModal() {
-            contactModal.classList.add('hidden');
-            contactModal.classList.remove('flex');
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Close modal on backdrop click
-        contactModal.addEventListener('click', (e) => {
-            if (e.target === contactModal) {
-                closeContactModal();
-            }
-        });
-        
-        // Close modal on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !contactModal.classList.contains('hidden')) {
-                closeContactModal();
-            }
-        });
-        
-        // Form handling
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function(e) {
-            const submitBtn = this.querySelector('button[type="submit"]');
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
-            submitBtn.disabled = true;
-        });
-        
-        // Smooth scroll with offset for fixed nav
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const navHeight = 80;
-                    const targetPosition = target.offsetTop - navHeight;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(10, 10, 10, 0.95)';
-            } else {
-                nav.style.background = 'rgba(20, 20, 20, 0.6)';
-            }
-        });
-    </script>
-<script>(function(){document.addEventListener("click",function(e){var a=e.target.closest("[data-product-id]");if(!a)return;e.preventDefault();var pid=a.getAttribute("data-product-id");if(pid)parent.postMessage({type:"ecto-artifact-link-click",productId:pid},"*")})})();</script>
-</body>
-</html>
+                <p class="text-gold text-sm tracking-[0.3em] uppercase mb-4">Exclusive Listings</p>
+                <h2 class="text-4xl md:text-5xl font-light mb-4">Featured <span class="gold-gradient">Properties</span></h
